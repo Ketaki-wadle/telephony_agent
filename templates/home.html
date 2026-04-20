@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Telephony Agent</title>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --panel: #fffaf2;
+            --ink: #1f2a37;
+            --muted: #5c6773;
+            --line: #d7c8ae;
+            --accent: #0f766e;
+            --accent-2: #d97706;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top right, rgba(217, 119, 6, 0.10), transparent 28%),
+                linear-gradient(180deg, #f9f5ed 0%, var(--bg) 100%);
+            color: var(--ink);
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 48px 20px 72px;
+        }
+
+        .hero {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 18px 45px rgba(60, 42, 15, 0.08);
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--accent);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.05;
+        }
+
+        .lead {
+            max-width: 760px;
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 28px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .card h2 {
+            margin: 0 0 14px;
+            font-size: 1.15rem;
+        }
+
+        .card p,
+        .card li {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+            background: #f4eadb;
+            border-radius: 6px;
+            padding: 2px 6px;
+            color: #7c2d12;
+        }
+
+        .status {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 22px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: #ecfdf5;
+            color: #065f46;
+            font-weight: 700;
+        }
+
+        .status::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+
+        .footer {
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <section class="hero">
+            <p class="eyebrow">Task 3 Demo</p>
+            <h1>AI-Powered Telephony Agent for Flat and Property Queries</h1>
+            <p class="lead">
+                This Django project answers property questions using database facts and supports
+                API, Twilio voice webhook, and Vapi webhook flows. Open the links below to present
+                the project cleanly instead of landing on a 404 page.
+            </p>
+            <div class="status">
+                Running with provider: <code>{{ provider }}</code> and default property ID: <code>{{ default_property_id }}</code>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <h2>Browser Endpoints</h2>
+                    <ul>
+                        <li><a href="/api/health/">/api/health/</a> checks service status</li>
+                        <li><a href="/api/properties/">/api/properties/</a> lists property data</li>
+                        <li><a href="/api/transcripts/">/api/transcripts/</a> lists saved conversations</li>
+                        <li><a href="/admin/">/admin/</a> opens Django admin</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h2>Important API Routes</h2>
+                    <ul>
+                        <li><code>POST /api/ask/</code> for property Q&amp;A</li>
+                        <li><code>POST /api/twilio/voice/</code> for Twilio voice webhooks</li>
+                        <li><code>POST /api/vapi/webhook/</code> for Vapi callbacks</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h2>Quick Demo Questions</h2>
+                    <ul>
+                        <li>What is the price?</li>
+                        <li>What is the carpet area?</li>
+                        <li>Is parking available?</li>
+                        <li>What is the location?</li>
+                    </ul>
+                </article>
+            </div>
+            <p class="footer">
+                Tip: keep <code>python manage.py runserver</code> running in one terminal, then test
+                the JSON and webhook endpoints from a second terminal.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
